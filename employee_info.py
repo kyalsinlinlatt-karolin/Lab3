@@ -52,6 +52,15 @@ def display_records(employee_info):
     for item in employee_info:
         print((item["name"] + "\t" + str(item["age"]) + "\t" + item["department"] + "\t" + str(item["salary"])).expandtabs(15))
 
+def display_employee_by_name(employee_name):
+    for item in employee_data:
+        if item["name"] == employee_name:
+            print("Name = ", item["name"])
+            print("Age = ", item["age"])
+            print("Dept = ", item["department"])
+            print("Salary = ", item["salary"])
+
+
 def display_main_menu():
 
     print("\n----- Employee information Tracker -----")
@@ -62,8 +71,7 @@ def display_main_menu():
     print("2 - Display average salary")
     print("3 - Display employee within age range")
     print("4 - Display employee in a department")
-
-
+    print("5 - Display employee info")
     print("Q - Quit")
 
     option = input("Enter selection =>")
@@ -86,6 +94,10 @@ def display_main_menu():
         department = input("Name of Department = ")
         employee_info = get_employees_by_dept(department)
         display_records(employee_info)
+
+    elif option == '5':
+        employee_name = input("Name of employee = ")
+        display_employee_by_name(employee_name)
 
     elif option == 'Q':
         quit()
